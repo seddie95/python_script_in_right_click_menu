@@ -11,13 +11,13 @@ hidden_terminal = '\\'.join(python_exe.split('\\')[:-1])+"\\pythonw.exe"
 
 
 # Set the path of the context menu (right-click menu)
-key_path = r'Directory\\Background\\shell\\Organiser\\'
+key_path = r'Directory\\Background\\shell\\Organiser\\' # Change 'Organiser' to the name of your project
 
 # Create outer key
 key = reg.CreateKey(reg.HKEY_CLASSES_ROOT, key_path)
-reg.SetValue(key, '', reg.REG_SZ, '&Organise folder')
+reg.SetValue(key, '', reg.REG_SZ, '&Organise folder')  # Change 'Organise folder' to the function of your script
 
 # create inner key
 key1 = reg.CreateKey(key, r"command")
-reg.SetValue(key1, '', reg.REG_SZ, python_exe + f' "{cwd}\\file_organiser.py"')
+reg.SetValue(key1, '', reg.REG_SZ, python_exe + f' "{cwd}\\file_organiser.py"') # change 'file_organiser.py' to the name of your script
 #reg.SetValue(key1, '', reg.REG_SZ, hidden_terminal + f' "{cwd}\\file_organiser.py"')  # use to to hide terminal
